@@ -50,3 +50,12 @@ function updateMemeCanvas(canvas, image, topText, bottomText) {
     ctx.strokeText(bottomText, width / 2, height - yOffset)
     ctx.fillText(bottomText, width / 2, height - yOffset)
 }
+
+document.getElementById('downloadButton').addEventListener('click', function () {
+    const canvas = document.getElementById('meme');
+    const image = canvas.toDataURL('image/png');
+    const link = document.createElement('a');
+    link.href = image;
+    link.download = 'meme.png';
+    link.click();
+});
